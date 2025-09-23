@@ -13,20 +13,16 @@ print(f"ways(0): {ways(0)}")
 
 import numpy as np
 
-names = np.array(['Hannah', 'Astrid', 'Abdul', 'Mauve', 'Jung'])
-scores = np.array([99, 71, 85, 62, 91])
-
-# Part 1: Find the name of the student with the lowest score
+def lowest_score(names, scores):
     lowest_score_index = np.argmin(scores)
     return names[lowest_score_index]
 
-print(f"Student with the lowest score: {lowest_score(names, scores)}")
+def sort_names(names, scores):
+    sorted_indices = np.argsort(scores)[::-1]
+    return names[sorted_indices].tolist()
 
 names = np.array(['Hannah', 'Astrid', 'Abdul', 'Mauve', 'Jung'])
 scores = np.array([99, 71, 85, 62, 91])
 
-# Part 2: Sort names by score in descending order
-    sorted_indices = np.argsort(scores)[::-1]  # Get indices that would sort scores in descending order
-    return names[sorted_indices].tolist()
-
+print(f"Student with the lowest score: {lowest_score(names, scores)}")
 print(f"Names sorted by score (descending): {sort_names(names, scores)}")
