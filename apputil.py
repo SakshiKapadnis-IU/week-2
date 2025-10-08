@@ -1,28 +1,22 @@
+import numpy as np
+
 def ways(n):
+    """Return the number of ways to make n cents using pennies (1) and nickels (5)."""
     count = 0
-    for num_nickels in range(n // 5 + 1):  # Iterate through possible number of nickels
+    for num_nickels in range(n // 5 + 1):
         remaining_amount = n - num_nickels * 5
-        if remaining_amount >= 0:  # Check if the remaining amount can be made with pennies
+        if remaining_amount >= 0:
             count += 1
     return count
 
-print(f"ways(12): {ways(12)}")
-print(f"ways(20): {ways(20)}")
-print(f"ways(3): {ways(3)}")
-print(f"ways(0): {ways(0)}")
-
-import numpy as np
 
 def lowest_score(names, scores):
+    """Return the name of the student with the lowest score."""
     lowest_score_index = np.argmin(scores)
     return names[lowest_score_index]
 
+
 def sort_names(names, scores):
+    """Return the names of students sorted in descending order of scores."""
     sorted_indices = np.argsort(scores)[::-1]
-    return names[sorted_indices].tolist()
-
-names = np.array(['Hannah', 'Astrid', 'Abdul', 'Mauve', 'Jung'])
-scores = np.array([99, 71, 85, 62, 91])
-
-print(f"Student with the lowest score: {lowest_score(names, scores)}")
-print(f"Names sorted by score (descending): {sort_names(names, scores)}")
+    return names[sorted_indices]
