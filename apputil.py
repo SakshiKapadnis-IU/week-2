@@ -13,10 +13,11 @@ def ways(n):
 def lowest_score(names, scores):
     """Return the name of the student with the lowest score."""
     lowest_score_index = np.argmin(scores)
-    return names[lowest_score_index]
+    return str(names[lowest_score_index])  # ensure it’s a Python string
 
 
 def sort_names(names, scores):
     """Return the names of students sorted in descending order of scores."""
     sorted_indices = np.argsort(scores)[::-1]
-    return names[sorted_indices]
+    # Explicitly return as numpy array of strings
+    return np.array(names[sorted_indices], dtype=str)
